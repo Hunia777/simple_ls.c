@@ -119,9 +119,10 @@ void print_long(DIR *dp, char* directory)
 		printf(" %d", (int)sb.st_size);
 		printf(" %s", time_convert(sb.st_mtime));
 		printf(" %s\n", file->d_name);
-
-		close(fd);
+		free(path);
+		path = NULL;
 	}
+	
 }
 
 char *time_convert(time_t rawTime)
